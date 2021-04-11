@@ -1,5 +1,6 @@
 import React, {createContext, useState} from 'react';
 import auth from '@react-native-firebase/auth';
+import {Alert} from 'react-native';
 // import firestore from '@react-native-firebase/firestore';
 // import { GoogleSignin } from '@react-native-community/google-signin';
 // import { LoginManager, AccessToken } from 'react-native-fbsdk';
@@ -16,14 +17,22 @@ export const AuthProvider = ({children}) => {
         setUser,
         login: async (email, password) => {
           try {
-            await auth().signInWithEmailAndPassword(email, password);
+            await auth().signInWithEmailAndPassword(email, password)
+              .then(() => {})
+              .catch((error) => {
+                Alert.alert("Error: ", error.message);
+              })
           } catch (e) {
-            console.log(e);
+            Alert.alert("Error: ", e);
           }
         },
         register: async (email, password) => {
           try {
             await auth().createUserWithEmailAndPassword(email, password)
+              .then(() => {})
+              .catch((error) => {
+                Alert.alert("Error: ", error.message);
+              })
             // .then(() => {
             // //   //Once the user creation has happened successfully, we can add the currentUser into firestore
             // //   //with the appropriate details.
@@ -45,14 +54,14 @@ export const AuthProvider = ({children}) => {
             //     console.log('Something went wrong with sign up: ', error);
             // });
           } catch (e) {
-            console.log(e);
+            Alert.alert("Error: ", e);
           }
         },
         logout: async () => {
           try {
             await auth().signOut();
           } catch (e) {
-            console.log(e);
+            Alert.alert("Error: ", e);
           }
         },
       }}>

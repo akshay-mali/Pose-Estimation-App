@@ -30,7 +30,7 @@ const AuthStack = () => {
               headerLeft: () => (
                 <View style={{marginLeft: 10}}>
                   <FontAwesome.Button 
-                    name="chevron-left"
+                    name="angle-left"
                     size={25}
                     backgroundColor="#f9fafd"
                     color="#333"
@@ -53,7 +53,7 @@ const AuthStack = () => {
               headerLeft: () => (
                 <View style={{marginLeft: 10}}>
                   <FontAwesome.Button 
-                    name="chevron-left"
+                    name="angle-left"
                     size={25}
                     backgroundColor="#f9fafd"
                     color="#333"

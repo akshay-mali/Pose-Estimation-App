@@ -5,7 +5,7 @@ import FormButton from '../components/FormButton';
 function Welcome({navigation}) {
     return (
         <View style={styles.container}>
-            <Text>Welcome</Text>
+            <Text style={{fontSize : 24, fontWeight: 'bold', padding: 48}}>Welcome</Text>
             <FormButton
               buttonTitle="Login"
               onPress={() => navigation.navigate('Login')}
@@ -22,7 +22,9 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      padding: 20,
+      backgroundColor : '#f9fafd'
     }
   });
 
